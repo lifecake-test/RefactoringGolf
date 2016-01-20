@@ -4,8 +4,9 @@ import java.util.Iterator;
 
 public class Hole5Before {
 
-    class FibonacciSequence {
+    class FibonacciSequence extends NumberSequence {
 
+        @Override
         public int term(int n) {
             if (n < 0) {
                 throw new IllegalArgumentException("Sequence undefined for negative index");
@@ -16,56 +17,16 @@ public class Hole5Before {
             return term(n - 2) + term(n - 1);
         }
 
-        public Iterator<Integer> iterator() {
-            return new Iterator<Integer>() {
-
-                private int currentIndex = 0;
-
-                public boolean hasNext() {
-                    return true;
-                }
-
-                public Integer next() {
-                    int result = term(currentIndex);
-                    currentIndex++;
-                    return result;
-                }
-
-                public void remove() {
-                    throw new UnsupportedOperationException();
-                }
-            };
-        }
     }
 
-    class TriangularNumberSequence {
+    class TriangularNumberSequence extends NumberSequence {
 
+        @Override
         public int term(int n) {
             if (n < 0) {
                 throw new IllegalArgumentException("Sequence undefined for negative index");
             }
             return (n + 2) * (n + 1) / 2;
-        }
-
-        public Iterator<Integer> iterator() {
-            return new Iterator<Integer>() {
-
-                private int currentIndex = 0;
-
-                public boolean hasNext() {
-                    return true;
-                }
-
-                public Integer next() {
-                    int result = term(currentIndex);
-                    currentIndex++;
-                    return result;
-                }
-
-                public void remove() {
-                    throw new UnsupportedOperationException();
-                }
-            };
         }
     }
 
